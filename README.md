@@ -1,1 +1,1 @@
-# Inico do projeto Comex teste 
+# Atividades Projeto Trainee Semana 6 
