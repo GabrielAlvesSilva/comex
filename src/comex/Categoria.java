@@ -1,14 +1,25 @@
 package comex;
 
 public class Categoria {
+	private static int count = 0;
 	private int id;
 	private String nome;
 	private boolean status = true;
-
-	public void cadastrarCategoria(int id,String nome, boolean status) {
-		this.id = id;
+	
+	public Categoria(String nome, boolean status) {
+		id = ++count;
 		this.nome = nome;
 		this.status = status;
+	}
+	
+	public void getCategoria() {
+		System.out.println("Categoria " + this.getNome() + 
+				"(" + this.getId() + " - " + 
+				this.getStatus() + ")");
+	}
+	
+	public void cadastrarCategoria() {
+
 	}
 		
 	public void setId(int id){
