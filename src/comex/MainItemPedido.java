@@ -20,8 +20,10 @@ public class MainItemPedido {
 		
 		ItemPedido item1 = new ItemPedido();
 		item1.cadastrarItemPedido(15, noteSansung, pedido1, "PROMOCAO");
-		item1.printIItemPedido();
-
+		item1.printIItemPedido();	
+		
+		CalculadoraValorTotal calculadora = new CalculadoraValorTotal(item1);
+		System.out.println("Valor Total com Descontos: " + String.format("%.2f", calculadora.calcula()));
 		
 
 		Cliente cliente2= new Cliente("Eli", "376.286.810-77", "(45) 3141-7844", "Travessa Leão Trauczynski", 37, "Perto da Panificadora", "Tatuquara", "Curitiba", "PR");
