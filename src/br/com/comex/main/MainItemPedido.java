@@ -1,4 +1,11 @@
-package comex;
+package br.com.comex.main;
+
+import br.com.comex.modelo.CalculadoraValorTotal;
+import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.ItemPedido;
+import br.com.comex.modelo.Pedido;
+import br.com.comex.modelo.Produto;
 
 public class MainItemPedido {
 

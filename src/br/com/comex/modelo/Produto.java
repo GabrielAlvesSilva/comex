@@ -1,4 +1,4 @@
-package comex;
+package br.com.comex.modelo;
 
 public class Produto {
 	private static int count = 0;

@@ -1,4 +1,6 @@
-package comex;
+package br.com.comex.main;
+
+import br.com.comex.modelo.Categoria;
 
 public class MainCategoria {
 

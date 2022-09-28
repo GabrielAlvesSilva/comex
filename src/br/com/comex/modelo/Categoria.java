@@ -1,4 +1,4 @@
-package comex;
+package br.com.comex.modelo;
 
 public class Categoria {
 	private static int count = 0;
@@ -10,8 +10,8 @@ public class Categoria {
 		id = ++count;
 		this.nome = nome;
 		this.status = status;
-		if (nome.length() <= 3) {
-			throw new IllegalArgumentException("O nome de Categoria precisa ter mais de 3 letras. Favor cadastrar novamente.");
+		if (nome.length() <= 3 || nome == null) {
+			throw new IllegalArgumentException("O nome é um campo obrigatorio e precisa ter mais de 3 letras. Favor cadastrar novamente.");
 		} else if (id <= 0) {
 			throw new IllegalArgumentException("O id precisa ser um valor acima e diferente de 0. Favor cadastrar novamente.");
 		}
