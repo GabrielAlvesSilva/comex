@@ -17,7 +17,15 @@ public class Produto {
 		 this.quantidadeEmEstoque = quantidadeEmEstoque;
 		 this.categoria = categoria;
 		 this.descricao = descricao;
-		 
+		 if (nome.length() <= 5 || nome == null) {
+				throw new IllegalArgumentException("O Nome de precisa ter mais de 5 letras e nao pode ficar fazio. Favor cadastrar novamente.");
+			} else if (precoUnitario <= 0) {
+				throw new IllegalArgumentException("O Preco Unitario precisa ser um valor acima e diferente de 0. Favor cadastrar novamente.");
+			}else if (quantidadeEmEstoque <= 0) {
+				throw new IllegalArgumentException("A Quantidade em Estoque precisa ser um valor acima e diferente de 0. Favor cadastrar novamente.");
+			}else if (categoria == null) {
+				throw new IllegalArgumentException("A Categoria é um cambo obrigatorio. Favor cadastrar novamente.");
+			}
 	}
 	
 	public void getProduto() {
