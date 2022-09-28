@@ -11,7 +11,7 @@ public class MainCalculadoraValorTotal {
 
 	public static void main(String[] args) {
 		
-		Categoria informatica = new Categoria("INFORMÁTICA", true);
+		Categoria informatica = new Categoria("INFORMÁTICA");
 		
 		Produto noteSansung = new Produto();
 		noteSansung.cadastraProduto("Notebook Samsung", 3523.00, 1, informatica, "NoteBook novo");

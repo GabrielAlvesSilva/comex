@@ -7,8 +7,8 @@ import br.com.comex.modelo.ProdutoIsento;
 public class MainProduto {
 	public static void main(String[] args) { 
 		
-		Categoria informatica = new Categoria("INFORMÁTICA", true);
-		Categoria livros = new Categoria("LIVROS", true);
+		Categoria informatica = new Categoria("INFORMÁTICA");
+		Categoria livros = new Categoria("LIVROS");
 		
 		Produto noteSansung = new Produto();
 		noteSansung.cadastraProduto("Notebook Samsung", 3523.00, 1, informatica, "NoteBook novo");
