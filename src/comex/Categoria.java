@@ -10,6 +10,13 @@ public class Categoria {
 		id = ++count;
 		this.nome = nome;
 		this.status = status;
+		if (nome.length() <= 3) {
+			throw new IllegalArgumentException("O nome de Categoria precisa ter mais de 3 letras. Favor cadastrar novamente.");
+		} else if (id <= 0) {
+			throw new IllegalArgumentException("O id precisa ser um valor acima e diferente de 0. Favor cadastrar novamente.");
+		}
+		
+		
 	}
 	
 	public void getCategoria() {
@@ -22,18 +29,6 @@ public class Categoria {
 
 	}
 		
-	public void setId(int id){
-		this.id = id;
-	}
-
-	public void setNome(String nome){
-		this.nome = nome;
-	}
-
-	public void setStatus(boolean status){
-		this.status = status;
-	}
-
 	public int  getId(){
 		return this.id;
 	}
