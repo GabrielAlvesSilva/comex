@@ -20,7 +20,7 @@ public class MainItemPedido {
 		Produto monitorDell = new Produto();
 		monitorDell.cadastraProduto("Monitor Dell 27", 1889.00, 3, informatica, "Monitor novo");
 
-		Cliente cliente1= new Cliente("Ana", "933.919.930-81", "(45) 3249-8347", "Rua Abraham Lincoln", 72, "Perto do Semafaro", "Seminário", "Curitiba", "PR");
+		Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 93249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", "PR");
 		
 		Pedido pedido1 = new Pedido("21-09-2022", cliente1);
 
@@ -33,8 +33,7 @@ public class MainItemPedido {
 		System.out.println("Valor Total com Descontos: " + String.format("%.2f", calculadora.calcula()));
 		
 
-		Cliente cliente2= new Cliente("Eli", "376.286.810-77", "(45) 3141-7844", "Travessa Leão Trauczynski", 37, "Perto da Panificadora", "Tatuquara", "Curitiba", "PR");
-
+		Cliente cliente2= new Cliente("Elimathias", "376.286.810-77", "(45) 93141-7844", "Travessa Leão Trauczynski", "37", "Perto da Panificadora", "Tatuquara", "Curitiba", "PR");
 		Pedido pedido2 = new Pedido("15-09-2000", cliente2);
 
 				
