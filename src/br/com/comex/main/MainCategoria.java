@@ -9,7 +9,7 @@ public class MainCategoria {
     //com erro       
 		Categoria informatica = new Categoria("A", Status.ATIVO);
 		informatica.getCategoria();
-			
+		
 		Categoria livros = new Categoria("LIVROS", Status.ATIVO);
 		livros.getCategoria();
 		

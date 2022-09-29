@@ -14,7 +14,7 @@ public class Categoria {
 			throw new IllegalArgumentException("O nome é um campo obrigatorio e precisa ter mais de 3 letras. Favor cadastrar novamente.");
 		} else if (id <= 0) {
 			throw new IllegalArgumentException("O id precisa ser um valor acima e diferente de 0. Favor cadastrar novamente.");
-		}else if (status != status.ATIVO || status != status.INATIVO ) {
+		}else if (status != Status.ATIVO && status != Status.INATIVO ) {
 			throw new IllegalArgumentException("O status precisa ser ATIVO ou INATIVO. Favor cadastrar novamente.");
 		}
 		
@@ -24,7 +24,7 @@ public class Categoria {
 	public Categoria(String nome) {
 		id = ++count;
 		this.nome = nome;
-		this.status = status.ATIVO;
+		this.status = Status.ATIVO;
 		
 		if (nome.length() <= 3 || nome == null) {
 			throw new IllegalArgumentException("O nome é um campo obrigatorio e precisa ter mais de 3 letras. Favor cadastrar novamente.");
