@@ -13,12 +13,12 @@ public class Cliente {
 	private String complemento;
 	private String bairro;
 	private String cidate;
-	private String estado;
+	private Estado estado;
 	
 	
 	public Cliente(String nome, String cpf, String telefone, 
 			String rua, String numero, String complemento, String bairro, 
-			String cidate, String estado) {
+			String cidate, Estado estado) {
 		id = ++count;
 		this.nome = nome;
 		this.cpf = cpf;
@@ -29,6 +29,8 @@ public class Cliente {
 		this.bairro = bairro;
 		this.cidate = cidate;
 		this.estado = estado;
+		
+		
 		if (nome.length() <= 5 || nome == null) {
 			throw new IllegalArgumentException("O Nome é um campo obrigatorio e precisa ter mais de 3 letras. Favor cadastrar novamente.");
 		}else if (Character.isAlphabetic((nome.charAt(0))) != true) {
@@ -53,11 +55,24 @@ public class Cliente {
 			throw new IllegalArgumentException("O Bairro é um campo obrigatorio e precisa ter mais de um 1 caracter. Favor cadastrar novamente.");
 		}else if (cidate.length() < 1 || cidate == null) {
 			throw new IllegalArgumentException("O Cidate é um campo obrigatorio e precisa ter mais de um 1 caracter. Favor cadastrar novamente.");
-		}else if (estado.length() != 2 || estado == null) {
-			throw new IllegalArgumentException("O Estado é um campo obrigatorio e precisa ter exatamento 2 caracteres. Favor cadastrar novamente.");
+		}else if ((verificaEstado()) || estado == null) {
+			throw new IllegalArgumentException("O Estado é um campo obrigatorio e corresponder com nossa base. Favor cadastrar novamente.");
 		}
-		
 	}
+			
+	public boolean verificaEstado() {	
+			int contador = 0;
+			for(Estado e: Estado.values()) {
+				if(this.estado == e) {
+					contador +=1;
+				}
+			}
+			if (contador != 0) {
+				return false;
+			}
+			return true;			
+		}	
+		
 		
 	public void printCliente() {
 		System.out.println("Id: " + this.id + 
@@ -78,7 +93,7 @@ public class Cliente {
 
 
 
-	public String getEstado() {
+	public Estado getEstado() {
 		return estado;
 	}
 
