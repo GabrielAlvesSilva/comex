@@ -12,7 +12,9 @@ public class Categoria {
 		this.status = status;
 		if (nome.length() <= 3 || nome == null) {
 			throw new IllegalArgumentException("O nome é um campo obrigatorio e precisa ter mais de 3 letras. Favor cadastrar novamente.");
-		} else if (id <= 0) {
+		}else if (Character.isAlphabetic((nome.charAt(0))) != true) {
+			throw new IllegalArgumentException("O Nome nao pode começar com numeros.");
+		}else if (id <= 0) {
 			throw new IllegalArgumentException("O id precisa ser um valor acima e diferente de 0. Favor cadastrar novamente.");
 		}else if (status != Status.ATIVO && status != Status.INATIVO ) {
 			throw new IllegalArgumentException("O status precisa ser ATIVO ou INATIVO. Favor cadastrar novamente.");

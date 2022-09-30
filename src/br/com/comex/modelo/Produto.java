@@ -19,7 +19,9 @@ public class Produto {
 		 this.descricao = descricao;
 		 if (nome.length() <= 5 || nome == null) {
 				throw new IllegalArgumentException("O Nome de precisa ter mais de 5 letras e nao pode ficar fazio. Favor cadastrar novamente.");
-			} else if (precoUnitario <= 0) {
+			}else if (Character.isAlphabetic((nome.charAt(0))) != true) {
+				throw new IllegalArgumentException("O Nome nao pode começar com numeros.");
+			}else if (precoUnitario <= 0) {
 				throw new IllegalArgumentException("O Preco Unitario precisa ser um valor acima e diferente de 0. Favor cadastrar novamente.");
 			}else if (quantidadeEmEstoque <= 0) {
 				throw new IllegalArgumentException("A Quantidade em Estoque precisa ser um valor acima e diferente de 0. Favor cadastrar novamente.");

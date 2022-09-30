@@ -5,13 +5,16 @@ public class Cliente {
 	private int id;
 	private String nome;
 	private String cpf;
+	private String exeCPF = "999.999.999-99";
 	private String telefone;
+	private String exeTelefone = "(99) 9 9999-9999";
 	private String rua;
 	private String numero;
 	private String complemento;
 	private String bairro;
 	private String cidate;
 	private String estado;
+	
 	
 	public Cliente(String nome, String cpf, String telefone, 
 			String rua, String numero, String complemento, String bairro, 
@@ -28,12 +31,20 @@ public class Cliente {
 		this.estado = estado;
 		if (nome.length() <= 5 || nome == null) {
 			throw new IllegalArgumentException("O Nome é um campo obrigatorio e precisa ter mais de 3 letras. Favor cadastrar novamente.");
-		} else if (id <= 0) {
+		}else if (Character.isAlphabetic((nome.charAt(0))) != true) {
+			throw new IllegalArgumentException("O Nome nao pode começar com numeros.");
+		}else if (id <= 0) {
 			throw new IllegalArgumentException("O id precisa ser um valor acima e diferente de 0. Favor cadastrar novamente.");
 		}else if (telefone.replaceAll("[^0-9]", "").length() < 11 || telefone.replaceAll("[^0-9]", "").length() > 16) {
 			throw new IllegalArgumentException("O Telefone precisa ter entre 11 a 16 caracteres. Favor cadastrar novamente.");
+		}else if (telefone.charAt(0) != exeTelefone.charAt(0) || (telefone.charAt(3) != exeTelefone.charAt(3)) ||
+					(telefone.charAt(4) != exeTelefone.charAt(4)) || (telefone.charAt(6) != exeTelefone.charAt(6)) ||
+					(telefone.charAt(11) != exeTelefone.charAt(11))) {
+			throw new IllegalArgumentException("O Telefone ser cadastrado com todos os caracteres padroe, segue o exemplo: "+ exeTelefone  +" Favor cadastrar novamente.");
 		}else if ((cpf.replaceAll("[^0-9]", "").length() < 11 || cpf.replaceAll("[^abc]", "").length() > 14) || cpf == null) {
 			throw new IllegalArgumentException("O CPF é um campo obrigatorio e precisa ter entre 11 a 14 caracteres. Favor cadastrar novamente.");
+		}else if (cpf.charAt(3) != exeCPF.charAt(3) || (cpf.charAt(7) != exeCPF.charAt(7)) || (cpf.charAt(11) != exeCPF.charAt(11))) {
+			throw new IllegalArgumentException("O CPF precisa ser cadastrado com os caracteres de acordo com esse padrao: " + exeCPF  +" Favor cadastrar novamente.");
 		}else if (rua.replaceAll("[^abc0-9]", "").length() < 5 || rua == null) {
 			throw new IllegalArgumentException("O Rua é um campo obrigatorio e precisa ter mais de 5 caracteres. Favor cadastrar novamente.");
 		}else if (numero.replaceAll("[^abc0-9]", "").length() < 1 || numero == null) {

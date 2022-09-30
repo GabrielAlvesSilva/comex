@@ -17,6 +17,12 @@ public class MainCliente {
 		//Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 93249-8347", "Rua Abraham Lincoln", " ", "Perto do Semafaro", "Seminário", "Curitiba", "PR");
 	//Error Estado
 		//Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 93249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", "R");
+	//Error nome numero
+		//Cliente cliente1= new Cliente("1Anabele", "933.919.930-81", "(45) 93249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", "PR");
+	//Error CPF caracteres
+		//Cliente cliente1= new Cliente("Anabele", "933.919.930.81", "(45) 93249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", "PR");
+	//Error Telefone caracteres
+		//Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 93249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", "PR");
 	//Sem erro
 		Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 93249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", "PR");
 		cliente1.printCliente();
