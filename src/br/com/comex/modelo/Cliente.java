@@ -56,7 +56,7 @@ public class Cliente {
 		}else if (cidate.length() < 1 || cidate == null) {
 			throw new IllegalArgumentException("O Cidate é um campo obrigatorio e precisa ter mais de um 1 caracter. Favor cadastrar novamente.");
 		}else if ((verificaEstado()) || estado == null) {
-			throw new IllegalArgumentException("O Estado é um campo obrigatorio e corresponder com nossa base. Favor cadastrar novamente.");
+			throw new ComexException("O Estado é um campo obrigatorio e corresponder com nossa base. Favor cadastrar novamente.");
 		}
 	}
 			

@@ -17,7 +17,7 @@ public class MainCliente {
 	//Error Numero
 		//Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 9 3249-8347", "Rua Abraham Lincoln", " ", "Perto do Semafaro", "Seminário", "Curitiba", Estado.PR);
 	//Error Estado 2 caracteres nao da mais erro depois dessa commit pois foi mudado a verificaçao
-		//Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 9 3249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", null);
+		Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 9 3249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", null);
 	//Error nome numero
 		//Cliente cliente1= new Cliente("1Anabele", "933.919.930-81", "(45) 9 3249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", Estado.PR);
 	//Error CPF caracteres
@@ -25,7 +25,7 @@ public class MainCliente {
 	//Error Telefone caracteres
 		//Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 93249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", Estado.PR);
 	//Sem erro
-		Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 9 3249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", Estado.PR);
+		//Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 9 3249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", Estado.PR);
 		cliente1.printCliente();
 		
 		
