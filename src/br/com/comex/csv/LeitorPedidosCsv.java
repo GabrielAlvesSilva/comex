@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class LeitorPedidosCsv {
-	List<PedidoCsv> LerPedidoCsv() throws FileNotFoundException{
+	List<PedidoCsv> lerPedidoCsv() throws FileNotFoundException{
 		List<PedidoCsv> pedidos = new ArrayList<PedidoCsv>();
 		InputStream inputStream = new FileInputStream("D:\\eclipse-workspace\\comex\\src\\br\\com\\comex\\csv\\pedidos.csv");
 		try (Scanner scanner = new Scanner(inputStream)) {

@@ -7,7 +7,7 @@ public class MontanteTotalVendas {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		LeitorPedidosCsv leitorpedidos = new LeitorPedidosCsv();
-		List<PedidoCsv> pedidosCsv = leitorpedidos.LerPedidoCsv();
+		List<PedidoCsv> pedidosCsv = leitorpedidos.lerPedidoCsv();
 		double soma = 0;
 		for(int i = 0; i < pedidosCsv.size(); i++)
 		{
