@@ -27,7 +27,7 @@ public class PedidoMaisBaratoEMaisCaro {
 		}
 		System.out.println("Venda mais barata: "+ NumberFormat.getCurrencyInstance().format(Double.parseDouble(pedidosCsv.get(imenor).getPreco()))
 				+ " Produto: "+ pedidosCsv.get(imenor).getProduto());
-		System.out.println("Venda mais cara: "+ NumberFormat.getCurrencyInstance().format(Double.parseDouble(pedidosCsv.get(imaior).getPreco())) 
+		System.out.println("Venda mais cara: "+ NumberFormat.getCurrencyInstance().format(Double.parseDouble(pedidosCsv.get(imaior).getPreco())* Double.parseDouble(pedidosCsv.get(imaior).getQuantidade())) 
 				+" Produto: "+ pedidosCsv.get(imaior).getProduto());	    
 	}
 
