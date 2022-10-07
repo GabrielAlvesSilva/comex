@@ -1,6 +1,7 @@
 package br.com.comex.csv;
 
 import java.io.FileNotFoundException;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class MontanteTotalVendas {
@@ -15,6 +16,8 @@ public class MontanteTotalVendas {
 			mult = Double.parseDouble(pedidosCsv.get(i).getPreco()) * Double.parseDouble(pedidosCsv.get(i).getQuantidade()); 
 			soma = soma + mult;
 		}
-		System.out.println("Montante de vendas: " +soma);
+		System.out.println("Montante de vendas: " +NumberFormat.getCurrencyInstance().format(soma));
+		
+		
 	}
 }
