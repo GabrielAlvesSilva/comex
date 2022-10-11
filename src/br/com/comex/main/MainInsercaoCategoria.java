@@ -15,8 +15,10 @@ public class MainInsercaoCategoria {
         String sql = "INSERT INTO comex.categoria (nome, status) values (?, ?)";
         String nome1 = "INFORMÁTICA";
         String status1 = "ATIVA";
+        
         String nome2 = "MÓVEIS";
         String status2 = "INATIVA";
+        
         String nome3 = "LIVROS";
         String status3 = "ATIVA";
         
