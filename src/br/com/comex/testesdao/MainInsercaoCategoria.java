@@ -1,8 +1,9 @@
-package br.com.comex.main;
+package br.com.comex.testesdao;
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import br.com.comex.dao.CategoriaDAO;
 import br.com.comex.modelo.Categoria;
-import br.com.comex.modelo.CategoriaDAO;
 import br.com.comex.modelo.ConnectionFactory;
 import br.com.comex.modelo.Status;
 

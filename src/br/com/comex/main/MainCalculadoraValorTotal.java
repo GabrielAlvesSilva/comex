@@ -14,8 +14,7 @@ public class MainCalculadoraValorTotal {
 		
 		Categoria informatica = new Categoria("INFORMÁTICA");
 		
-		Produto noteSansung = new Produto();
-		noteSansung.cadastraProduto("Notebook Samsung", 3523.00, 1, informatica, "NoteBook novo");
+		Produto noteSansung = new Produto("Notebook Samsung", 3523.00, 1, informatica, "NoteBook novo");
 		
 		Cliente cliente1= new Cliente("Anabele", "933.919.930-81", "(45) 93249-8347", "Rua Abraham Lincoln", "72", "Perto do Semafaro", "Seminário", "Curitiba", Estado.PR);
 		

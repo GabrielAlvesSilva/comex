@@ -10,11 +10,12 @@ public class MainCategoria {
 		//Categoria informatica = new Categoria("A", Status.ATIVO);
 		//informatica.getCategoria();
 	//Erro caracteres nome       
-		Categoria informatica = new Categoria("1Notebook SUper", Status.ATIVO);
-		informatica.getCategoria();
+		Categoria informatica = new Categoria("Notebook Super", Status.ATIVA);
+		System.out.println(informatica.toString());
+		System.out.println(informatica.getStatusString());
 		
-		Categoria livros = new Categoria("LIVROS", Status.ATIVO);
-		livros.getCategoria();
+		Categoria livros = new Categoria("LIVROS", Status.ATIVA);
+		livros.toString();
 		
 		
 	}	

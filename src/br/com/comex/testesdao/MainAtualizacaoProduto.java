@@ -1,8 +1,9 @@
-package br.com.comex.main;
+package br.com.comex.testesdao;
 import java.sql.Connection;
 import java.sql.SQLException;
+
+import br.com.comex.dao.ProdutoDAO;
 import br.com.comex.modelo.ConnectionFactory;
-import br.com.comex.modelo.ProdutoDAO;
 
 
 public class MainAtualizacaoProduto {

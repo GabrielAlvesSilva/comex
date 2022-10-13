@@ -1,10 +1,12 @@
-package br.com.comex.modelo;
+package br.com.comex.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import br.com.comex.modelo.Produto;
 
 public class ProdutoDAO {
 	private Connection connection;

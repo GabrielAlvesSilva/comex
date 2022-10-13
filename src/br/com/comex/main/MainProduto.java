@@ -10,16 +10,13 @@ public class MainProduto {
 		Categoria informatica = new Categoria("INFORMÁTICA");
 		Categoria livros = new Categoria("LIVROS");
 		
-		Produto noteSansung = new Produto();
-		noteSansung.cadastraProduto("Notebook Samsung", 3523.00, 1, informatica, "NoteBook novo");
+		Produto noteSansung = new Produto("Notebook Samsung", 3523.00, 1, informatica, "NoteBook novo");
 		noteSansung.RelatorioProduto();
 		
-		ProdutoIsento cleanArchitecture = new ProdutoIsento();
-		cleanArchitecture.cadastraProduto("Clean Architecture", 102.90, 2, livros, "Livro novo");
+		ProdutoIsento cleanArchitecture = new ProdutoIsento("Clean Architecture", 102.90, 2, livros, "Livro novo");
 		cleanArchitecture.RelatorioProduto();
 		
-		Produto monitorDell = new Produto();
-		monitorDell.cadastraProduto("Monitor Dell 27", 1889.00, 3, informatica, "Monitor novo");
+		Produto monitorDell = new Produto("Monitor Dell 27", 1889.00, 3, informatica, "Monitor novo");
 		monitorDell.RelatorioProduto();
 	
  //Com Erros
