@@ -2,7 +2,7 @@ package br.com.comex.modelo;
 
 public class Cliente {
 	private static int count = 0;
-	private int id;
+	private long id;
 	private String nome;
 	private String cpf;
 	private String exeCPF = "999.999.999-99";
@@ -87,14 +87,20 @@ public class Cliente {
 				" Estado: " + this.estado);
 	}
 		
-	public int getId() {
+	public long getId() {
 		return id;
 	}
-
-
+	
+	public void setId(long id) {
+		 this.id = id;
+	}
 
 	public Estado getEstado() {
 		return estado;
+	}
+	
+	public String getEstadoString() {
+		return String.format("%s", getEstado());
 	}
 
 
@@ -145,7 +151,11 @@ public class Cliente {
 		return cidate;
 	}
 	
-	
+	@Override
+	public String toString() {
+
+		return String.format("Cliente cadastrada: id:%d Nome:%s CPF:%s", this.id, this.nome, this.cpf);
+	}
 	
 	
 }
