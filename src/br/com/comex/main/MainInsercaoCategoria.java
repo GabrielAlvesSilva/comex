@@ -1,8 +1,10 @@
 package br.com.comex.main;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.CategoriaDAO;
 import br.com.comex.modelo.ConnectionFactory;
+import br.com.comex.modelo.Status;
 
 
 public class MainInsercaoCategoria {
@@ -11,39 +13,17 @@ public class MainInsercaoCategoria {
 
 		ConnectionFactory conexao = new ConnectionFactory();
         Connection connection = conexao.getConnection();
+       
+        Categoria informatica = new Categoria("INFORMÁTICA", Status.ATIVA);
+        Categoria moveis = new Categoria("MÓVEIS", Status.INATIVA);
+        Categoria livros = new Categoria("LIVROS", Status.ATIVA);
+        
+        new CategoriaDAO(connection).cadastrarCategoria(informatica);
+        new CategoriaDAO(connection).cadastrarCategoria(moveis);
+        new CategoriaDAO(connection).cadastrarCategoria(livros);
 
-        String sql = "INSERT INTO comex.categoria (nome, status) values (?, ?)";
-        String nome1 = "INFORMÁTICA";
-        String status1 = "ATIVA";
-        
-        String nome2 = "MÓVEIS";
-        String status2 = "INATIVA";
-        
-        String nome3 = "LIVROS";
-        String status3 = "ATIVA";
-        
-        PreparedStatement insert1 = connection.prepareStatement(sql);
-        insert1.setString(1, nome1);
-        insert1.setString(2, status1);
-        insert1.execute();
-        
-        PreparedStatement insert2 = connection.prepareStatement(sql);
-        insert2.setString(1, nome2);
-        insert2.setString(2, status2);
-        insert2.execute();
-        
-        PreparedStatement insert3 = connection.prepareStatement(sql);
-        insert3.setString(1, nome3);
-        insert3.setString(2, status3);
-        insert3.execute();
 
-      
-        	
-        insert3.close();
-        insert2.close();
-        insert1.close();
-        connection.close();
-
+        connection.close();  
 	}
 
 }
