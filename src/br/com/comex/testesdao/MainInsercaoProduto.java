@@ -15,9 +15,8 @@ public class MainInsercaoProduto {
 		ConnectionFactory conexao = new ConnectionFactory();
         Connection connection = conexao.getConnection();
 
-        Produto noteSansung = new Produto("Notebook Samsung", 3523.00, 1, 25, "NoteBook novo");
-        Produto noteXUXA = new Produto("Notebook XUXA", 7000.00, 1, 25, "NoteBook Ruim");
-
+        Produto noteSansung = new Produto("Notebook Samsung", 3523.00, 1, 31, "NoteBook novo");
+        Produto noteXUXA = new Produto("Notebook XUXA", 7000.00, 1, 31, "NoteBook Ruim");
         new ProdutoDAO(connection).cadastrarProduto(noteSansung);
         new ProdutoDAO(connection).cadastrarProduto(noteXUXA);
         

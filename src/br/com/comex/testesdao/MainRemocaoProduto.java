@@ -11,7 +11,7 @@ public class MainRemocaoProduto {
 		ConnectionFactory conexao = new ConnectionFactory();
         Connection connection = conexao.getConnection();
         
-        new ProdutoDAO(connection).deletarProdutoPorNome("Notebook XUXA");
+        new ProdutoDAO(connection).deletarProdutoPorID(30);
 
         connection.close();
 	}

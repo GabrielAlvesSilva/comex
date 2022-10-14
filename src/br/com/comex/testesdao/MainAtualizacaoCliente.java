@@ -11,7 +11,7 @@ public class MainAtualizacaoCliente {
 		ConnectionFactory conexao = new ConnectionFactory();
         Connection connection = conexao.getConnection();
             
-        new ClienteDAO(connection).atualizarClienteNome("Petter", "Petter de Paula");
+        new ClienteDAO(connection).atualizarClienteNome(14, "Petter de Paula");
         
         connection.close();
 	}

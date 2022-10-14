@@ -1,12 +1,13 @@
 package br.com.comex.dao;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.List;
 import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.Estado;
+
 
 public class ClienteDAO {
 	private Connection connection;
@@ -40,43 +41,48 @@ public class ClienteDAO {
 		 insert.close();
 	}
 	
-	public void atualizarClienteNome(String nomeAtual, String nomeNovo) throws SQLException {
-		 String sql = "update comex.cliente set nome = ? where nome = ?";
+	public void atualizarClienteNome(int id, String nomeNovo) throws SQLException {
+		 String sql = "update comex.cliente set nome = ? where id = ?";
 		 
 		 PreparedStatement update = connection.prepareStatement(sql);
 		 	update.setString(1, nomeNovo);
-		 	update.setString(2, nomeAtual);
+		 	update.setInt(2, id);
 		 	update.execute();
 	        System.out.println("Atualicao realizada com Sucesso.");
 	        update.close();  
 	}
 			
-	public void listarCliente() throws SQLException {
-		Statement stm = connection.createStatement();
-       stm.execute("SELECT * FROM comex.cliente");
-       
-       ResultSet rst = stm.getResultSet();
-       System.out.println("ID |      Nome       |    Descricao    | Preco Unitario| Quantidade Estoque | Categoria ID | Tipo");
-       while(rst.next()) {
-       	int id = rst.getInt("id");
-       	String nome = rst.getString("nome");
-       	String descricao = rst.getString("descricao");
-       	double precoUnitario = rst.getDouble("preco_unitario");
-       	int quantidade = rst.getInt("quantidade_estoque");
-       	int idCategoria = rst.getInt("categoria_id");
-       	String tipo = rst.getString("tipo");
-       	System.out.println(id +"   "+ nome +" "+ descricao + "       "+ precoUnitario+ "         " + 
-       						quantidade+ "                    "+ idCategoria+ "             " + tipo);
-       }
-       stm.close();
-       rst.close();
+	public List<Cliente> listarCliente() throws SQLException {
+		String sql = "select * from comex.cliente";
+		PreparedStatement select = connection.prepareStatement(sql);
+		
+		List<Cliente> clientes = new ArrayList<>();
+		ResultSet registros = select.executeQuery();
+		while (registros.next()) {
+			Cliente cliente = new Cliente(
+					registros.getString("nome"),
+					registros.getString("cpf"),
+					registros.getString("TELEFONE"),
+					registros.getString("RUA"),
+					registros.getString("NUMERO"),
+					registros.getString("COMPLEMENTO"),
+					registros.getString("BAIRRO"),
+					registros.getString("CIDADE"),
+					Estado.valueOf(registros.getString("UF"))    
+					);
+			cliente.setId(registros.getLong("id"));
+			clientes.add(cliente);		
+		}
+		registros.close();
+		select.close();
+		return clientes;
 	}
 	
-	public void deletarClientePorNome(String nome) throws SQLException {
-		String sql = "delete from comex.cliente where nome = ?";
+	public void deletarClientePorNome(int id) throws SQLException {
+		String sql = "delete from comex.cliente where id = ?";
               
        PreparedStatement delete = connection.prepareStatement(sql);
-       delete.setString(1, nome);
+       delete.setInt(1, id);
        delete.execute();
        System.out.println("Deletado com Sucesso.");
        delete.close();

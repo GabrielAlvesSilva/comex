@@ -1,11 +1,10 @@
 package br.com.comex.dao;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.List;
 import br.com.comex.modelo.Produto;
 
 public class ProdutoDAO {
@@ -36,65 +35,67 @@ public class ProdutoDAO {
 		 insert.close();
 	}
 	
-	public void atualizarProdutoNome(String nomeAtual, String nomeNovo) throws SQLException {
-		 String sql = "update comex.produto set nome = ? where nome = ?";
+	public void atualizarProdutoNome(int id, String nomeNovo) throws SQLException {
+		 String sql = "update comex.produto set nome = ? where id = ?";
 		 
 		 PreparedStatement update = connection.prepareStatement(sql);
 		 	update.setString(1, nomeNovo);
-		 	update.setString(2, nomeAtual);
+		 	update.setInt(2, id);
 		 	update.execute();
 	        System.out.println("Atualicao realizada com Sucesso.");
 	        update.close();  
 	}
 	
-	public void atualizarProdutoPreco(String nome, double preco) throws SQLException {
-		 String sql = "update comex.produto set preco_unitario = ? where nome = ?";
+	public void atualizarProdutoPreco(int id, double preco) throws SQLException {
+		 String sql = "update comex.produto set preco_unitario = ? where id = ?";
 		 
 		 PreparedStatement update = connection.prepareStatement(sql);
 		 	update.setDouble(1, preco);
-		 	update.setString(2, nome);
+		 	update.setInt(2, id);
 		 	update.execute();
 	        System.out.println("Atualicao realizada com Sucesso.");
 	        update.close();  
 	}
 	
-	public void atualizarProdutoQuantidade(String nome, int quantidade) throws SQLException {
-		 String sql = "update comex.produto set quantidade_estoque = ? where nome = ?";
+	public void atualizarProdutoQuantidade(int id, int quantidade) throws SQLException {
+		 String sql = "update comex.produto set quantidade_estoque = ? where id = ?";
 		 
 		 PreparedStatement update = connection.prepareStatement(sql);
 		 	update.setInt(1, quantidade);
-		 	update.setString(2, nome);
+		 	update.setInt(2, id);
 		 	update.execute();
 	        System.out.println("Atualicao realizada com Sucesso.");
 	        update.close();  
 	}
 	
-	public void listarProduto() throws SQLException {
-		Statement stm = connection.createStatement();
-       stm.execute("SELECT * FROM comex.produto");
-       
-       ResultSet rst = stm.getResultSet();
-       System.out.println("ID |      Nome       |    Descricao    | Preco Unitario| Quantidade Estoque | Categoria ID | Tipo");
-       while(rst.next()) {
-       	int id = rst.getInt("id");
-       	String nome = rst.getString("nome");
-       	String descricao = rst.getString("descricao");
-       	double precoUnitario = rst.getDouble("preco_unitario");
-       	int quantidade = rst.getInt("quantidade_estoque");
-       	int idCategoria = rst.getInt("categoria_id");
-       	String tipo = rst.getString("tipo");
-       	System.out.println(id +"   "+ nome +" "+ descricao + "       "+ precoUnitario+ "         " + 
-       						quantidade+ "                    "+ idCategoria+ "             " + tipo);
-       }
-       stm.close();
-       rst.close();
+	public List<Produto> listarProduto() throws SQLException {
+		String sql = "select * from comex.produto";
+		PreparedStatement select = connection.prepareStatement(sql);
+		
+		List<Produto> produtos = new ArrayList<>();
+		ResultSet registros = select.executeQuery();
+		while (registros.next()) {
+			Produto produto = new Produto(
+					registros.getString("NOME"),
+					registros.getDouble("PRECO_UNITARIO"),
+					registros.getInt("QUANTIDADE_ESTOQUE"),
+					registros.getInt("CATEGORIA_ID"),
+					registros.getString("DESCRICAO"),
+					registros.getString("TIPO") 
+					);
+			produto.setId(registros.getLong("id"));
+			produtos.add(produto);		
+		}
+		registros.close();
+		select.close();
+		return produtos;
 	}
 	
-	public void deletarProdutoPorNome(String nome) throws SQLException {
-		String sql = "delete from comex.produto where nome = ?";
+	public void deletarProdutoPorID (int id) throws SQLException {
+		String sql = "delete from comex.produto where id = ?";
               
        PreparedStatement delete = connection.prepareStatement(sql);
-       delete.setString(1, nome);
+       delete.setInt(1, id);
        delete.execute();
        System.out.println("Deletado com Sucesso.");
        delete.close();

@@ -1,12 +1,12 @@
 package br.com.comex.dao;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
-
+import java.util.ArrayList;
+import java.util.List;
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Status;
 
 public class CategoriaDAO {
 private Connection connection;
@@ -31,32 +31,34 @@ private Connection connection;
 	        insert.close();  
 	}
 	
-	public void atualizarCategoria(String nomeAtual, String nomeNovo) throws SQLException {
-		 String sql = "update comex.categoria set nome = ? where nome = ?";
+	public void atualizarCategoria(String novo, int id) throws SQLException {
+		 String sql = "update comex.categoria set nome = ? where id = ?";
 		 
 		 PreparedStatement update = connection.prepareStatement(sql);
-		 	update.setString(1, nomeNovo);
-		 	update.setString(2, nomeAtual);
+		 	update.setString(1, novo);
+		 	update.setInt(2, id);
 		 	update.execute();
 	        System.out.println("Atualicao realizada com Sucesso.");
 	        update.close();  
 	}
 	
-	public void listarCategoria() throws SQLException {
-		Statement stm = connection.createStatement();
-        stm.execute("SELECT * FROM comex.categoria");
-        
-        ResultSet rst = stm.getResultSet();
-        System.out.println("ID | Nome | STATUS");
-        while(rst.next()) {
-        	int id = rst.getInt("id");
-        	String nome = rst.getString("nome");
-        	String status = rst.getString("status");
-        	System.out.println(id +" "+ nome +" "+ status);
-        }
-        stm.close();
-        rst.close();
-        connection.close();
+	public List<Categoria> listarCategoria() throws SQLException {
+		String sql = "select * from comex.categoria";
+		PreparedStatement select = connection.prepareStatement(sql);
+		
+		List<Categoria> categorias = new ArrayList<>();
+		ResultSet registros = select.executeQuery();
+		while (registros.next()) {
+			Categoria categoria = new Categoria(
+					registros.getString("NOME"),
+					Status.valueOf(registros.getString("STATUS"))
+					);
+			categoria.setId(registros.getLong("id"));
+			categorias.add(categoria);		
+		}
+		registros.close();
+		select.close();
+		return categorias;
 	}
 	
 	public void deletarCategoriaPorStatus(String status) throws SQLException {
@@ -69,11 +71,11 @@ private Connection connection;
         delete.close();
 	}
 	
-	public void deletarCategoriaPorNome(String nome) throws SQLException {
-		String sql = "delete from comex.categoria where nome = ?";
+	public void deletarCategoriaPorID(int id) throws SQLException {
+		String sql = "delete from comex.categoria where id = ?";
                
         PreparedStatement delete = connection.prepareStatement(sql);
-        delete.setString(1, nome);
+        delete.setInt(1, id);
         delete.execute();
         System.out.println("Categoria deletada com Sucesso.");
         delete.close();
