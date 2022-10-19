@@ -1,10 +1,18 @@
 package br.com.comex.modelo;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+
 public class Categoria {
 	private static int count = 0;
 	private long id;
 	private String nome;
 	private Status status;
+	
+	public Categoria() {
+		
+	}
 	
 	public Categoria(String nome, Status status) {
 		id = ++count;
@@ -53,6 +61,10 @@ public class Categoria {
 	
 	public Status getStatus(){
 		return this.status;
+	}
+	
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 	
 	public String getStatusString() {
