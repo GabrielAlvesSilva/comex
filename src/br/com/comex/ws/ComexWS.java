@@ -16,7 +16,18 @@ public class ComexWS {
 		ConnectionFactory conexao = new ConnectionFactory();
         Connection connection = conexao.getConnection();
         List<Categoria> ListadeCategorias = new CategoriaDAO(connection).listarCategoria();
+        connection.close();
         return ListadeCategorias;
+        
 	}
 	
+	public Categoria adicionarCategoria(Categoria categoria) throws SQLException {
+		ConnectionFactory conexao = new ConnectionFactory();
+        Connection connection = conexao.getConnection();
+		
+        new CategoriaDAO(connection).cadastrarCategoria(categoria);
+        
+		 connection.close();
+		 return categoria;
+	}
 }

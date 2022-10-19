@@ -15,7 +15,7 @@ public class MainInsercaoCategoria {
 		ConnectionFactory conexao = new ConnectionFactory();
         Connection connection = conexao.getConnection();
        
-        Categoria informatica = new Categoria("INFORMÁTICA", Status.ATIVA);
+        Categoria informatica = new Categoria("Jogos d");
         Categoria moveis = new Categoria("MÓVEIS", Status.INATIVA);
         Categoria livros = new Categoria("LIVROS", Status.ATIVA);
         

@@ -32,7 +32,6 @@ public class Categoria {
 	}
 	
 	public Categoria(String nome) {
-		id = ++count;
 		this.nome = nome;
 		this.status = Status.ATIVA;
 		
