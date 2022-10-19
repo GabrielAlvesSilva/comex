@@ -10,7 +10,7 @@ public class MainComexWS {
 		
 		String url = "http://localhost:8080/ComexWS";
 		Endpoint.publish(url, new ComexWS());
-		System.out.println("Categorias publicadas");
+		System.out.println("Comex Ativo");
 
 	}
 

@@ -3,6 +3,9 @@ package br.com.comex.ws;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
+
+import javax.jws.WebMethod;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import br.com.comex.dao.CategoriaDAO;
 import br.com.comex.dao.ClienteDAO;
@@ -12,7 +15,8 @@ import br.com.comex.modelo.ConnectionFactory;
 
 @WebService
 public class ComexWS {
-	
+	@WebMethod(operationName = "getCategorias") 
+	@WebResult(name = "listarCategorias" )
 	public List<Categoria> getCategorias() throws SQLException {
 		
 		ConnectionFactory conexao = new ConnectionFactory();

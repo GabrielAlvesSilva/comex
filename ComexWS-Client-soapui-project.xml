@@ -153,7 +153,7 @@
   </xs:complexType>
   <xs:complexType name="getCategoriasResponse">
     <xs:sequence>
-      <xs:element name="return" type="tns:categoria" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:element name="listarCategorias" type="tns:categoria" minOccurs="0" maxOccurs="unbounded"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="listarClientes">
@@ -166,13 +166,53 @@
   </xs:complexType>
   <xs:complexType name="cliente">
     <xs:sequence>
+      <xs:element name="bairro" type="xs:string" minOccurs="0"/>
+      <xs:element name="cidate" type="xs:string" minOccurs="0"/>
+      <xs:element name="complemento" type="xs:string" minOccurs="0"/>
+      <xs:element name="cpf" type="xs:string" minOccurs="0"/>
+      <xs:element name="estado" type="tns:estado" minOccurs="0"/>
       <xs:element name="id" type="xs:long"/>
+      <xs:element name="nome" type="xs:string" minOccurs="0"/>
+      <xs:element name="numero" type="xs:string" minOccurs="0"/>
+      <xs:element name="rua" type="xs:string" minOccurs="0"/>
+      <xs:element name="telefone" type="xs:string" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="status">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ATIVA"/>
       <xs:enumeration value="INATIVA"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="estado">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AC"/>
+      <xs:enumeration value="AL"/>
+      <xs:enumeration value="AP"/>
+      <xs:enumeration value="AM"/>
+      <xs:enumeration value="BA"/>
+      <xs:enumeration value="CE"/>
+      <xs:enumeration value="DF"/>
+      <xs:enumeration value="ES"/>
+      <xs:enumeration value="GO"/>
+      <xs:enumeration value="MA"/>
+      <xs:enumeration value="MT"/>
+      <xs:enumeration value="MS"/>
+      <xs:enumeration value="MG"/>
+      <xs:enumeration value="PA"/>
+      <xs:enumeration value="PB"/>
+      <xs:enumeration value="PR"/>
+      <xs:enumeration value="PE"/>
+      <xs:enumeration value="PI"/>
+      <xs:enumeration value="RJ"/>
+      <xs:enumeration value="RN"/>
+      <xs:enumeration value="RS"/>
+      <xs:enumeration value="RO"/>
+      <xs:enumeration value="RR"/>
+      <xs:enumeration value="SC"/>
+      <xs:enumeration value="SP"/>
+      <xs:enumeration value="SE"/>
+      <xs:enumeration value="TO"/>
     </xs:restriction>
   </xs:simpleType>
 </xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8080/ComexWS</con:endpoint></con:endpoints><con:operation id="bf321d8f-1959-4207-a002-7b0e6afe0eff" isOneWay="false" action="" name="getCategorias" bindingOperationName="getCategorias" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b443e628-6970-4def-ad27-eaaf9aadab76" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ComexWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.comex.com.br/">\r
