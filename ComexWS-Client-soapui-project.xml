@@ -16,17 +16,29 @@
   <message name="SQLException">
     <part name="fault" element="tns:SQLException"/>
   </message>
-  <message name="listarClientes">
-    <part name="parameters" element="tns:listarClientes"/>
-  </message>
-  <message name="listarClientesResponse">
-    <part name="parameters" element="tns:listarClientesResponse"/>
-  </message>
   <message name="adicionarCategoria">
     <part name="parameters" element="tns:adicionarCategoria"/>
   </message>
   <message name="adicionarCategoriaResponse">
     <part name="parameters" element="tns:adicionarCategoriaResponse"/>
+  </message>
+  <message name="listarProdutos">
+    <part name="parameters" element="tns:listarProdutos"/>
+  </message>
+  <message name="listarProdutosResponse">
+    <part name="parameters" element="tns:listarProdutosResponse"/>
+  </message>
+  <message name="adicionarCliente">
+    <part name="parameters" element="tns:adicionarCliente"/>
+  </message>
+  <message name="adicionarClienteResponse">
+    <part name="parameters" element="tns:adicionarClienteResponse"/>
+  </message>
+  <message name="listarClientes">
+    <part name="parameters" element="tns:listarClientes"/>
+  </message>
+  <message name="listarClientesResponse">
+    <part name="parameters" element="tns:listarClientesResponse"/>
   </message>
   <portType name="ComexWS">
     <operation name="getCategorias">
@@ -34,15 +46,25 @@
       <output wsam:Action="http://ws.comex.com.br/ComexWS/getCategoriasResponse" message="tns:getCategoriasResponse"/>
       <fault message="tns:SQLException" name="SQLException" wsam:Action="http://ws.comex.com.br/ComexWS/getCategorias/Fault/SQLException"/>
     </operation>
-    <operation name="listarClientes">
-      <input wsam:Action="http://ws.comex.com.br/ComexWS/listarClientesRequest" message="tns:listarClientes"/>
-      <output wsam:Action="http://ws.comex.com.br/ComexWS/listarClientesResponse" message="tns:listarClientesResponse"/>
-      <fault message="tns:SQLException" name="SQLException" wsam:Action="http://ws.comex.com.br/ComexWS/listarClientes/Fault/SQLException"/>
-    </operation>
     <operation name="adicionarCategoria">
       <input wsam:Action="http://ws.comex.com.br/ComexWS/adicionarCategoriaRequest" message="tns:adicionarCategoria"/>
       <output wsam:Action="http://ws.comex.com.br/ComexWS/adicionarCategoriaResponse" message="tns:adicionarCategoriaResponse"/>
       <fault message="tns:SQLException" name="SQLException" wsam:Action="http://ws.comex.com.br/ComexWS/adicionarCategoria/Fault/SQLException"/>
+    </operation>
+    <operation name="listarProdutos">
+      <input wsam:Action="http://ws.comex.com.br/ComexWS/listarProdutosRequest" message="tns:listarProdutos"/>
+      <output wsam:Action="http://ws.comex.com.br/ComexWS/listarProdutosResponse" message="tns:listarProdutosResponse"/>
+      <fault message="tns:SQLException" name="SQLException" wsam:Action="http://ws.comex.com.br/ComexWS/listarProdutos/Fault/SQLException"/>
+    </operation>
+    <operation name="adicionarCliente">
+      <input wsam:Action="http://ws.comex.com.br/ComexWS/adicionarClienteRequest" message="tns:adicionarCliente"/>
+      <output wsam:Action="http://ws.comex.com.br/ComexWS/adicionarClienteResponse" message="tns:adicionarClienteResponse"/>
+      <fault message="tns:SQLException" name="SQLException" wsam:Action="http://ws.comex.com.br/ComexWS/adicionarCliente/Fault/SQLException"/>
+    </operation>
+    <operation name="listarClientes">
+      <input wsam:Action="http://ws.comex.com.br/ComexWS/listarClientesRequest" message="tns:listarClientes"/>
+      <output wsam:Action="http://ws.comex.com.br/ComexWS/listarClientesResponse" message="tns:listarClientesResponse"/>
+      <fault message="tns:SQLException" name="SQLException" wsam:Action="http://ws.comex.com.br/ComexWS/listarClientes/Fault/SQLException"/>
     </operation>
   </portType>
   <binding name="ComexWSPortBinding" type="tns:ComexWS">
@@ -59,7 +81,7 @@
         <soap:fault name="SQLException" use="literal"/>
       </fault>
     </operation>
-    <operation name="listarClientes">
+    <operation name="adicionarCategoria">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -71,7 +93,31 @@
         <soap:fault name="SQLException" use="literal"/>
       </fault>
     </operation>
-    <operation name="adicionarCategoria">
+    <operation name="listarProdutos">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="SQLException">
+        <soap:fault name="SQLException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="adicionarCliente">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+      <fault name="SQLException">
+        <soap:fault name="SQLException" use="literal"/>
+      </fault>
+    </operation>
+    <operation name="listarClientes">
       <soap:operation soapAction=""/>
       <input>
         <soap:body use="literal"/>
@@ -94,11 +140,15 @@
   <xs:element name="SQLException" type="tns:SQLException"/>
   <xs:element name="adicionarCategoria" type="tns:adicionarCategoria"/>
   <xs:element name="adicionarCategoriaResponse" type="tns:adicionarCategoriaResponse"/>
+  <xs:element name="adicionarCliente" type="tns:adicionarCliente"/>
+  <xs:element name="adicionarClienteResponse" type="tns:adicionarClienteResponse"/>
   <xs:element name="categoria" type="tns:categoria"/>
   <xs:element name="getCategorias" type="tns:getCategorias"/>
   <xs:element name="getCategoriasResponse" type="tns:getCategoriasResponse"/>
   <xs:element name="listarClientes" type="tns:listarClientes"/>
   <xs:element name="listarClientesResponse" type="tns:listarClientesResponse"/>
+  <xs:element name="listarProdutos" type="tns:listarProdutos"/>
+  <xs:element name="listarProdutosResponse" type="tns:listarProdutosResponse"/>
   <xs:complexType name="adicionarCategoria">
     <xs:sequence>
       <xs:element name="arg0" type="tns:categoria" minOccurs="0"/>
@@ -148,6 +198,25 @@
   <xs:complexType name="stackTraceElement" final="extension restriction">
     <xs:sequence/>
   </xs:complexType>
+  <xs:complexType name="listarProdutos">
+    <xs:sequence/>
+  </xs:complexType>
+  <xs:complexType name="listarProdutosResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:produto" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="produto">
+    <xs:sequence>
+      <xs:element name="descricao" type="xs:string" minOccurs="0"/>
+      <xs:element name="id" type="xs:long"/>
+      <xs:element name="idCategoria" type="xs:int"/>
+      <xs:element name="nome" type="xs:string" minOccurs="0"/>
+      <xs:element name="precoUnitario" type="xs:double"/>
+      <xs:element name="quantidadeEmEstoque" type="xs:int"/>
+      <xs:element name="tipo" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="getCategorias">
     <xs:sequence/>
   </xs:complexType>
@@ -176,6 +245,16 @@
       <xs:element name="numero" type="xs:string" minOccurs="0"/>
       <xs:element name="rua" type="xs:string" minOccurs="0"/>
       <xs:element name="telefone" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adicionarCliente">
+    <xs:sequence>
+      <xs:element name="arg0" type="tns:cliente" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="adicionarClienteResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:cliente" minOccurs="0"/>
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="status">
@@ -239,4 +318,37 @@
    <soapenv:Body>\r
       <ws:listarClientes/>\r
    </soapenv:Body>\r
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.comex.com.br/ComexWS/listarClientesRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.comex.com.br/ComexWS/listarClientesRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="de024546-bc9a-4e7d-bf0f-4be03c870cfb" isOneWay="false" action="" name="listarProdutos" bindingOperationName="listarProdutos" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="83abed34-dd8b-4791-8c6a-c494dab8a740" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ComexWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.comex.com.br/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ws:listarProdutos/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.comex.com.br/ComexWS/listarProdutosRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="eb99e16c-64cc-43dd-b359-fd937c34e2ad" isOneWay="false" action="" name="adicionarCliente" bindingOperationName="adicionarCliente" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="5d89dc85-bce3-4612-8d4f-aaf369124ac2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8080/ComexWS</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ws="http://ws.comex.com.br/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <ws:adicionarCliente>\r
+         <!--Optional:-->\r
+         <arg0>\r
+            <!--Optional:-->\r
+            <bairro>Centro</bairro>
+            <!--Optional:-->\r
+            <cidate>Curitiba</cidate>
+            <!--Optional:-->\r
+           <complemento>"Perto do Semafaro</complemento>
+            <!--Optional:-->\r
+            <cpf>943.919.930-81</cpf>
+            <!--Optional:-->\r
+            <estado>PR</estado>
+            <id>?</id>\r
+            <!--Optional:-->\r
+            <nome>Anabobela</nome>
+            <!--Optional:-->\r
+           <numero>72</numero>
+            <!--Optional:-->\r
+           <rua>Rua Abraham Lincoln</rua>
+            <!--Optional:-->\r
+            <telefone>(45) 9 3249-8347</telefone>
+         </arg0>\r
+      </ws:adicionarCliente>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://ws.comex.com.br/ComexWS/adicionarClienteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

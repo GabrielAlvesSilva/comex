@@ -17,6 +17,10 @@ public class Cliente {
 	private String cidate;
 	private Estado estado;
 	
+	public Cliente() {
+		
+	}
+	
 	public Cliente(String nome, String cpf, String telefone, 
 			String rua, String numero, String complemento, String bairro, 
 			String cidate, Estado estado) {
