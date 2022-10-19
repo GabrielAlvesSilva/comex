@@ -3,41 +3,7 @@ package br.com.comex.modelo;
 public class Cliente {
 	private static int count = 0;
 	private long id;
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public void setTelefone(String telefone) {
-		this.telefone = telefone;
-	}
-
-	public void setRua(String rua) {
-		this.rua = rua;
-	}
-
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public void setCidate(String cidate) {
-		this.cidate = cidate;
-	}
-
-	public void setEstado(Estado estado) {
-		this.estado = estado;
-	}
+	
 
 	private String nome;
 	private String cpf;
@@ -50,7 +16,6 @@ public class Cliente {
 	private String bairro;
 	private String cidate;
 	private Estado estado;
-	
 	
 	public Cliente(String nome, String cpf, String telefone, 
 			String rua, String numero, String complemento, String bairro, 
@@ -139,49 +104,33 @@ public class Cliente {
 		return String.format("%s", getEstado());
 	}
 
-
-
 	public String getCpf() {
 		return cpf;
 	}
-
-
 
 	public String getTelefone() {
 		return telefone;
 	}
 
-
-
 	public String getRua() {
 		return rua;
 	}
-
-
 
 	public String getNumero() {
 		return numero;
 	}
 
-
-
 	public String getComplemento() {
 		return complemento;
 	}
-
-
 
 	public String getNome() {
 		return nome;
 	}
 
-
-
 	public String getBairro() {
 		return bairro;
 	}
-
-
 
 	public String getCidate() {
 		return cidate;
@@ -191,6 +140,42 @@ public class Cliente {
 	public String toString() {
 
 		return String.format("Cliente cadastrada: id:%d Nome:%s CPF:%s", this.id, this.nome, this.cpf);
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public void setCidate(String cidate) {
+		this.cidate = cidate;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
 	}
 	
 	

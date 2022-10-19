@@ -6,6 +6,7 @@ public class Produto {
 	private String nome;
 	private String descricao;	
 	private double precoUnitario;
+	
 	private int quantidadeEmEstoque;
 	private Categoria categoria;
 	private int idCategoria;
@@ -185,6 +186,34 @@ public class Produto {
 
 	public String getTipo() {
 		return tipo;
+	}
+	
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	public void setPrecoUnitario(double precoUnitario) {
+		this.precoUnitario = precoUnitario;
+	}
+
+	public void setQuantidadeEmEstoque(int quantidadeEmEstoque) {
+		this.quantidadeEmEstoque = quantidadeEmEstoque;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public void setIdCategoria(int idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 }
