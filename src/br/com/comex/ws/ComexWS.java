@@ -5,7 +5,9 @@ import java.sql.SQLException;
 import java.util.List;
 import javax.jws.WebService;
 import br.com.comex.dao.CategoriaDAO;
+import br.com.comex.dao.ClienteDAO;
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Cliente;
 import br.com.comex.modelo.ConnectionFactory;
 
 @WebService
@@ -29,5 +31,13 @@ public class ComexWS {
         
 		 connection.close();
 		 return categoria;
+	}
+	
+	public  List<Cliente> listarClientes() throws SQLException{
+	ConnectionFactory conexao = new ConnectionFactory();
+    Connection connection = conexao.getConnection();
+    List<Cliente> ListadeClientes = new ClienteDAO(connection).listarCliente();
+    return ListadeClientes;
+    
 	}
 }

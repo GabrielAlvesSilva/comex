@@ -3,6 +3,42 @@ package br.com.comex.modelo;
 public class Cliente {
 	private static int count = 0;
 	private long id;
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public void setCidate(String cidate) {
+		this.cidate = cidate;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
 	private String nome;
 	private String cpf;
 	private String exeCPF = "999.999.999-99";
