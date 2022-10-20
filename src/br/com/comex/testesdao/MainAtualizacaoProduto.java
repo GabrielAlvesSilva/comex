@@ -12,9 +12,9 @@ public class MainAtualizacaoProduto {
 		ConnectionFactory conexao = new ConnectionFactory();
         Connection connection = conexao.getConnection();
             
-        new ProdutoDAO(connection).atualizarProdutoNome(29, "Notebook Asus");
-        new ProdutoDAO(connection).atualizarProdutoPreco(29, 5000.00);
-        new ProdutoDAO(connection).atualizarProdutoQuantidade(29, 10);
+        new ProdutoDAO(connection).atualizarProduto(29, "Notebook teste", 3, 4000, 31 , 
+        		"NAO_ISENTO", "NoteBook Novo");
+
         connection.close();
 	}
 

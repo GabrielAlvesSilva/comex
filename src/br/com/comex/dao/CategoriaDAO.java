@@ -31,12 +31,15 @@ private Connection connection;
 	        insert.close();  
 	}
 	
-	public void atualizarCategoria(String novo, int id) throws SQLException {
-		 String sql = "update comex.categoria set nome = ? where id = ?";
+	public void atualizarCategoria(String nome, String status, int id) throws SQLException {
+		 String sql = "update comex.categoria set nome = ?,"
+		 		+ "status = ?"
+		 		+ " where id = ?";
 		 
 		 PreparedStatement update = connection.prepareStatement(sql);
-		 	update.setString(1, novo);
-		 	update.setInt(2, id);
+		 	update.setString(1, nome);
+		 	update.setString(2, status);
+		 	update.setInt(3, id);
 		 	update.execute();
 	        System.out.println("Atualicao realizada com Sucesso.");
 	        update.close();  

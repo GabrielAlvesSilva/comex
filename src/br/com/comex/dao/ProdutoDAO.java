@@ -35,34 +35,28 @@ public class ProdutoDAO {
 		 insert.close();
 	}
 	
-	public void atualizarProdutoNome(int id, String nomeNovo) throws SQLException {
-		 String sql = "update comex.produto set nome = ? where id = ?";
+	public void atualizarProduto(int id, String nome, 
+											int quantidade, double preco, 
+											int categoria_id, String tipo,
+											String descricao
+											) throws SQLException {
+		 String sql = "update comex.produto set "
+		 		+ "nome = ?, "
+		 		+ "quantidade_estoque = ?, "
+		 		+ "preco_unitario = ?, "
+		 		+ "categoria_id = ?, "
+		 		+ "tipo = ?, "
+		 		+ "descricao = ? "
+		 		+ "where id = ?";
 		 
 		 PreparedStatement update = connection.prepareStatement(sql);
-		 	update.setString(1, nomeNovo);
-		 	update.setInt(2, id);
-		 	update.execute();
-	        System.out.println("Atualicao realizada com Sucesso.");
-	        update.close();  
-	}
-	
-	public void atualizarProdutoPreco(int id, double preco) throws SQLException {
-		 String sql = "update comex.produto set preco_unitario = ? where id = ?";
-		 
-		 PreparedStatement update = connection.prepareStatement(sql);
-		 	update.setDouble(1, preco);
-		 	update.setInt(2, id);
-		 	update.execute();
-	        System.out.println("Atualicao realizada com Sucesso.");
-	        update.close();  
-	}
-	
-	public void atualizarProdutoQuantidade(int id, int quantidade) throws SQLException {
-		 String sql = "update comex.produto set quantidade_estoque = ? where id = ?";
-		 
-		 PreparedStatement update = connection.prepareStatement(sql);
-		 	update.setInt(1, quantidade);
-		 	update.setInt(2, id);
+		 	update.setString(1, nome);
+		 	update.setInt(2, quantidade);
+		 	update.setDouble(3, preco);
+		 	update.setInt(4, categoria_id);
+		 	update.setString(5, tipo);
+		 	update.setString(6, descricao);
+		 	update.setInt(7, id);
 		 	update.execute();
 	        System.out.println("Atualicao realizada com Sucesso.");
 	        update.close();  

@@ -6,6 +6,10 @@ public class Pedido {
 	private String data;
 	private Cliente cliente;
 	long idcliente;
+
+	public Pedido() {
+		
+	}
 	
 	public Pedido(String data,Cliente cliente) {
 		id = ++count;
@@ -51,6 +55,22 @@ public class Pedido {
 	
 	public String getClientNome() {
 		return this.cliente.getNome();
+	}
+	
+	public static int getCount() {
+		return count;
+	}
+
+	public static void setCount(int count) {
+		Pedido.count = count;
+	}
+
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 	
 	@Override

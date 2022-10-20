@@ -11,7 +11,7 @@ public class MainAtualizacaoPedido {
 		ConnectionFactory conexao = new ConnectionFactory();
         Connection connection = conexao.getConnection();
             
-        new PedidoDAO(connection).atualizarPedidoData(15, "10/10/10");
+        new PedidoDAO(connection).atualizarPedido(15, "10/10/15", 13);
         
         connection.close();
 	}

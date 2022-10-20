@@ -12,6 +12,10 @@ public class Produto {
 	private int idCategoria;
 	private String tipo;
 	
+	public Produto() {
+		
+	}
+	
 	public Produto(String nome, double precoUnitario,	int quantidadeEmEstoque, Categoria categoria, String descricao){
 		 id = ++count; 
 		 this.nome = nome;  

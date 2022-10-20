@@ -11,7 +11,7 @@ public class ItemPedido {
 	private double precoUnitario;
 	private long idProduto;
 	private long idPedido;
-
+	
 	public ItemPedido(double precoUnitario, int quantidade , long idProduto , long idPedido, String tipoDesconto) {
 		this.precoUnitario = precoUnitario;
 		this.quantidade = quantidade;
@@ -29,7 +29,7 @@ public class ItemPedido {
 	}
 	
 	public ItemPedido() {
-		id = ++count;
+		
 	}
 	
 	public void cadastrarItemPedido(int quantidade, Produto produto, Pedido pedido, String tipoDesconto) {
@@ -127,6 +127,46 @@ public class ItemPedido {
 
 	public long getIdPedido() {
 		return idPedido;
+	}
+	
+	public static int getCount() {
+		return count;
+	}
+
+	public static void setCount(int count) {
+		ItemPedido.count = count;
+	}
+
+	public void setQuantidade(int quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public void setProduto(Produto produto) {
+		this.produto = produto;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
+	public void setDesconto(double desconto) {
+		this.desconto = desconto;
+	}
+
+	public void setTipoDesconto(String tipoDesconto) {
+		this.tipoDesconto = tipoDesconto;
+	}
+
+	public void setPrecoUnitario(double precoUnitario) {
+		this.precoUnitario = precoUnitario;
+	}
+
+	public void setIdProduto(long idProduto) {
+		this.idProduto = idProduto;
+	}
+
+	public void setIdPedido(long idPedido) {
+		this.idPedido = idPedido;
 	}
 	
 	@Override

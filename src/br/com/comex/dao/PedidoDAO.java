@@ -33,12 +33,15 @@ public class PedidoDAO {
 		 insert.close();
 	}
 	
-	public void atualizarPedidoData(int id, String novaData) throws SQLException {
-		 String sql = "update comex.pedido set data = ? where id = ?";
+	public void atualizarPedido(int id, String novaData, int novoCliente) throws SQLException {
+		 String sql = "update comex.pedido set data = ?, "
+		 		+ "cliente_id = ? "
+		 		+ "where id = ?";
 		 
 		 PreparedStatement update = connection.prepareStatement(sql);
 		 	update.setString(1, novaData);
-		 	update.setInt(2, id);
+		 	update.setInt(2, novoCliente);
+		 	update.setInt(3, id);
 		 	update.execute();
 	        System.out.println("Atualicao realizada com Sucesso.");
 	        update.close();  

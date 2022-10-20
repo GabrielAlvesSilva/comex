@@ -12,7 +12,7 @@ public class MainAtualizacaoCategoria {
 		ConnectionFactory conexao = new ConnectionFactory();
         Connection connection = conexao.getConnection();
             
-        new CategoriaDAO(connection).atualizarCategoria("LIVROS TÉCNICOS", 33);
+        new CategoriaDAO(connection).atualizarCategoria("teste TÉCNICOS","ATIVA", 49);
         
         connection.close();
 	}

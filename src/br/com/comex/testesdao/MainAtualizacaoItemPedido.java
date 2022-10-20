@@ -11,7 +11,7 @@ public class MainAtualizacaoItemPedido {
 		ConnectionFactory conexao = new ConnectionFactory();
         Connection connection = conexao.getConnection();
             
-        new ItemPedidoDAO(connection).atualizarItemPedidoQuantidade(11, 10);
+        new ItemPedidoDAO(connection).atualizarItemPedido(11, 70000, 10, 29, 15, 0.1);
         
         connection.close();
 	}
