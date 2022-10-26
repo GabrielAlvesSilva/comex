@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class ConnectionFactory {
 	public Connection getConnection() {
 		try {
-			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "comex", "comex");
+			return DriverManager.getConnection("jdbc:oracle:thin:@localhost:1522:xe", "comex", "comex");
 		}catch(SQLException e){
 			throw new RuntimeException(e);
 		}
