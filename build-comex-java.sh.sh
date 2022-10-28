@@ -1,0 +1,1 @@
+docker build -t Gabriel/comex/comexws:1.1 .
